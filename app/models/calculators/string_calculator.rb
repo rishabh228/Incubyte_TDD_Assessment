@@ -8,7 +8,11 @@ module Calculators
         delimiter, numbers = extract_custom_delimiter(numbers)
       end
 
-      numbers.split(delimiter).map(&:to_i).reduce(0, :+)
+      nums = numbers.split(delimiter)
+      negatives = nums.select { |n| n.to_i < 0 }
+      raise "negative numbers are not allowed: #{negatives.join(', ')}" unless negatives.empty?
+
+      nums.map(&:to_i).reduce(0, :+)
     end
 
     private
