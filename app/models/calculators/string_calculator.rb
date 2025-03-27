@@ -1,3 +1,5 @@
+require_relative 'negative_number_error'
+
 module Calculators
   class StringCalculator
     def add(numbers)
@@ -10,7 +12,7 @@ module Calculators
 
       nums = numbers.split(delimiter)
       negatives = nums.select { |n| n.to_i < 0 }
-      raise "negative numbers are not allowed: #{negatives.join(', ')}" unless negatives.empty?
+      raise NegativeNumberError.new(negatives) unless negatives.empty?
 
       nums.map(&:to_i).reduce(0, :+)
     end

@@ -34,17 +34,12 @@ RSpec.describe Calculators::StringCalculator, type: :model do
 
     it 'throws an exception for negative numbers' do
       calculator = Calculators::StringCalculator.new
-      expect { calculator.add('1,-2') }.to raise_error('negative numbers are not allowed: -2')
+      expect { calculator.add('1,-2') }.to raise_error(Calculators::NegativeNumberError, 'negative numbers are not allowed: -2')
     end
 
     it 'throws an exception for multiple negative numbers' do
       calculator = Calculators::StringCalculator.new
-      expect { calculator.add('1,-2,-3') }.to raise_error('negative numbers are not allowed: -2, -3')
+      expect { calculator.add('1,-2,-3') }.to raise_error(Calculators::NegativeNumberError, 'negative numbers are not allowed: -2, -3')
     end
   end
 end
-
-
-
-
-
