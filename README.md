@@ -32,8 +32,8 @@ Examples
 
 Installation
 1.Clone the repository:
-  git clone https://github.com/yourusername/incubyte_string_calculator.git
-  cd incubyte_string_calculator
+  https://github.com/rishabh228/Incubyte_TDD_Assessment.git
+  cd Incubyte_TDD_Assessment
 
 2.Install dependencies
   bundle install
